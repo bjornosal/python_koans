@@ -16,14 +16,22 @@
 # and
 #   about_triangle_project_2.py
 #
+
+
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
+    if a <= 0 or b <= 0 or c <= 0:
+        raise TriangleError("A side was less than 0.")
+
+    if sum([a, b]) < c or sum([a, c]) < b or sum([b, c]) < a:
+        raise TriangleError("Sum of two sides were less than the third.")
+
     if a == b == c:
         return 'equilateral'
     elif a == b or a == c or b == c:
         return 'isosceles'
     else:
         return 'scalene'
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
